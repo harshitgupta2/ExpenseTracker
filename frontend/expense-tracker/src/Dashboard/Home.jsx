@@ -8,6 +8,8 @@ import InfoCard from '../Cards/InfoCard'
 import { addThousandSeparator } from '../Utils/helper'
 import RecentTransactions from '../Transactions/RecentTransactions'
 import FinanceOverview from '../Transactions/FinanceOverview'
+import ExpenseTransaction from '../Transactions/ExpenseTransaction'
+import Last30DaysExpenses from '../Transactions/Last30DaysExpenses'
 
 import {LuHandCoins, LuWalletMinimal} from "react-icons/lu"
 import {IoMdCard} from "react-icons/io"
@@ -18,6 +20,17 @@ const Home = () => {
   const[dashboardData,setDashboardData] = useState(null);
   const [loading,setLoading] = useState(false);
 
+
+/**
+ * Fetches all dashboard-related data for the authenticated user.
+ *
+ * This function manages the loading state, sends a request to the
+ * backend to retrieve dashboard metrics, and updates the UI state
+ * with the received data. If the request fails, it logs a generic
+ * error message. Loading is reset regardless of success or failure.
+ *
+ * @returns {Promise<void>} Performs async operations but does not return a value.
+ */
   const fetchDashboardData= async() =>{
     if(loading) return;
     
@@ -74,6 +87,15 @@ const Home = () => {
            totalIncome = {dashboardData?.totalIncome || 0}
            totalExpense = {dashboardData?.totalExpense || 0}
             />
+
+            <ExpenseTransaction
+            transactions = {dashboardData?. last30DaysExpense?.transaction || []}
+            onSeeMore={() => navigate("/expense")}
+             />
+             <Last30DaysExpenses 
+              data ={dashboardData?.last30DaysExpense?.transaction || []}
+             />
+           
          </div>
       </div>
     </DashboardLayout>

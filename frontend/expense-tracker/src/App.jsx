@@ -6,6 +6,7 @@ import SignUp from "./pages/Auth/SignUp";
 import Income from "./Dashboard/Income";
 import Expense from "./Dashboard/Expense";
 import UserProvider from "./context/UserContext";
+import Toaster from "react-hot-toast";
 
 const App = () => {
   return (
@@ -16,10 +17,18 @@ const App = () => {
           <Route path="/login" exact element={<Login />} />
           <Route path="/signup" exact element={<SignUp />} />
           <Route path="/dashboard" exact element={<Home />} />
-          <Route path="/income" exact element={<Income />} />
+          <Route path="/income" element={<Income />} />
           <Route path="/expense" exact element={<Expense />} />
         </Routes>
       </div>
+      <Toaster
+        toastOptions={{
+          className: "",
+          Style: {
+            fontSize: "13px",
+          },
+        }}
+      />
     </UserProvider>
   );
 };
