@@ -11,7 +11,7 @@ import DeleteAlert from "../components/DeleteAlert";
 import { useUserAuth } from "../hooks/useUserAuth";
 
 const Income = () => {
-  useUserAuth()
+  useUserAuth();
   const [incomeData, setIncomeData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [openDeleteAlert, setOpenDeleteAlert] = useState({
@@ -68,7 +68,7 @@ const Income = () => {
    *
    * @returns {Promise<void>} Performs async operations but does not return a value.
    */
-  
+
   const handleAddIncome = async (income) => {
     const { source, amount, date } = income;
     // validation check

@@ -11,6 +11,7 @@ const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1h" });
 };
 
+
 /**
  * Registers a new user.
  *
@@ -77,7 +78,7 @@ exports.registerUser = async (req, res) => {
  *
  * @returns {Promise<void>}
  */
- exports.loginUser = async (req, res) => {
+exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
 
   // checking field is empty or not
@@ -118,18 +119,16 @@ exports.registerUser = async (req, res) => {
  *
  * @returns {Promise<void>}
  */
- exports.getUserInfo = async (req, res) => {
-    try{
-        const user = await User.findById(req.user.id).select("-password");
-        if(!user){
-            res.status(400).json({message: "user not found"})
-        }
-        res.status(200).json(user)
-    } catch(error){
-        res
+exports.getUserInfo = async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id).select("-password");
+    if (!user) {
+      res.status(400).json({ message: "user not found" });
+    }
+    res.status(200).json(user);
+  } catch (error) {
+    res
       .status(500)
       .json({ message: "Error loging user", error: error.message });
-    }
-
-
+  }
 };

@@ -10,7 +10,13 @@ import {
 import CustomToolip from "./CustomToolip";
 import CustomLegend from "./CustomLegend";
 
-const CustomPieChart = ({ data,label, totalAmount, colors, showTextAnchor }) => {
+const CustomPieChart = ({
+  data,
+  label,
+  totalAmount,
+  colors,
+  showTextAnchor,
+}) => {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <PieChart>
@@ -29,7 +35,7 @@ const CustomPieChart = ({ data,label, totalAmount, colors, showTextAnchor }) => 
           ))}
         </Pie>
         <Tooltip content={CustomToolip} />
-        <Legend  content ={CustomLegend}/>
+        <Legend content={CustomLegend} />
 
         {showTextAnchor && (
           <>

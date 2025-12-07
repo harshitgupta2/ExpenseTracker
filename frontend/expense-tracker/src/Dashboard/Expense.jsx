@@ -69,8 +69,8 @@ const Expense = () => {
       );
     }
   };
-  
- const handleDelete = async (id) => {
+
+  const handleDelete = async (id) => {
     try {
       await axiosInstance.delete(API_PATHS.EXPENSE.DELETE_EXPENSE(id));
       setOpenDeleteAlert({ show: false, data: null });
@@ -92,10 +92,10 @@ const Expense = () => {
         <div className="grid grid-cols-1 gap-6">
           <div className="">
             <ExpenseOverview
-            transactions={expenseData}
-            onExpenseIncome ={()=> setOpenAddExpenseModal(true)}
-             />
-             <ExpenseList
+              transactions={expenseData}
+              onExpenseIncome={() => setOpenAddExpenseModal(true)}
+            />
+            <ExpenseList
               transactions={expenseData}
               onDelete={(id) => {
                 setOpenDeleteAlert({ show: true, data: id });
@@ -104,14 +104,13 @@ const Expense = () => {
           </div>
         </div>
         <Modal
-        isOpen={openAddExpenseModal}
-        onClck={()=> setOpenAddExpenseModal(false)}
-        title="Add Expense"
+          isOpen={openAddExpenseModal}
+          onClck={() => setOpenAddExpenseModal(false)}
+          title="Add Expense"
         >
-        <AddExpenseFrom onAddIncome = {handleAddExpense} />
-
+          <AddExpenseFrom onAddIncome={handleAddExpense} />
         </Modal>
-         <Modal
+        <Modal
           isOpen={openDeleteAlert.show}
           onClose={() => setOpenDeleteAlert({ show: false, data: null })}
           title="Delete expense"

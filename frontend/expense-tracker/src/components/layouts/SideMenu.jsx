@@ -19,7 +19,7 @@ const SideMenu = ({activeMenu }) => {
  * @param {string} route - The name or path of the route to navigate to.
  */
   const handleClick = (route) => {
-    if(route=="Logout"){
+    if(route=="logout"){
       handleLogout();
       return;
     }

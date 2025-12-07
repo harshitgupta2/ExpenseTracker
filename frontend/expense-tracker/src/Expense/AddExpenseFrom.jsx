@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import Input from "../components/input/Input";
 
-
-
 const AddExpenseFrom = ({ onAddIncome }) => {
   const [income, setIncome] = useState({
     source: "",

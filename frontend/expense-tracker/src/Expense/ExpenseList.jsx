@@ -1,8 +1,8 @@
-import React from 'react'
-import TransactionInfoCard from '../Cards/TransactionInfoCard'
-import moment from 'moment'
+import React from "react";
+import TransactionInfoCard from "../Cards/TransactionInfoCard";
+import moment from "moment";
 
-const ExpenseList = ({transactions,onDelete}) => {
+const ExpenseList = ({ transactions, onDelete }) => {
   return (
     <div className="card">
       <div className="flex items-center justify-center">
@@ -23,7 +23,7 @@ const ExpenseList = ({transactions,onDelete}) => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ExpenseList
+export default ExpenseList;
