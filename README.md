@@ -5,7 +5,7 @@
 
 ## Project Description:
 
-    The Expense Management System is a web-based application designed to assist users in tracking and managing their daily expenses. This system is built using the MERN stack (MongoDB, Express.js, React.js, and Node.js) to create a scalable, responsive, and user-friendly application.
+    The Expense Management System is a web-based application designed to assist users in tracking and managing their daily expenses. This system is built using the MERN stack (MongoDB, Express.js, React.js, and Node.js) to create a scalable, and user-friendly application.
 
 ## Objectives:
 
@@ -38,12 +38,6 @@ Support attaching receipts or other relevant documents to expense entries.
     Generate reports based on selected date ranges and categories, displaying pie charts and bar graphs to help users understand their spending patterns.
     
 
-- Responsive User Interface:
-
-    Design a clean, responsive user interface that works seamlessly across desktop, tablet, and mobile devices.
-    
-    Utilize React.js for building reusable UI components and managing state effectively.
-
 
 ## Technical Architecture:
 
@@ -63,10 +57,6 @@ Support attaching receipts or other relevant documents to expense entries.
     Store all data, including user information, expense entries, and categories, in MongoDB, a NoSQL database.
 
     Implement Mongoose ORM for schema definition and validation.
-
-- Deployment:
-
-    Deploy the application in Vercel
 
 ## Run Locally
 
