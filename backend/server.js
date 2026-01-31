@@ -22,6 +22,10 @@ app.use(express.json());
 
 connectDb();
 
+app.get('/',(req,res)=>{
+  res.send("server is live")
+})
+
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/income", incomeRoutes);
 app.use("/api/v1/expense", expenseRoutes);
