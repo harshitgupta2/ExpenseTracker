@@ -1,4 +1,4 @@
-export const BASE_URL = "http://localhost:3000";
+export const BASE_URL = "https://expensetracker-backend-vfel.onrender.com";
 export const API_PATHS = {
   AUTH: {
     LOGIN: "/api/v1/auth/login",
