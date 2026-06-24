@@ -89,7 +89,7 @@ exports.loginUser = async (req, res) => {
   try {
     const user = await User.findOne({ email });
     if (!user || !(await user.comparePassword(password))) {
-      res.status(400).json({ message: "Invalid credential" });
+      return res.status(400).json({ message: "User Not Found!Make sure you are registered "});
     }
     res.status(200).json({
       id: user._id,
@@ -97,9 +97,7 @@ exports.loginUser = async (req, res) => {
       token: generateToken(user._id),
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error loging user", error: error.message });
+    res.status(500).json({ message: "Error loging user", error: error.message });
   }
 };
 

@@ -34,7 +34,6 @@ const Login = () => {
    */
   const handleLogin = async (e) => {
     e.preventDefault();
-
     if (!validateEmail(email)) {
       setError("please Enter an email");
       return;
@@ -44,22 +43,26 @@ const Login = () => {
       setError("please enter a valid password");
       return;
     }
-    setError(" ");
+    setError(null)
 
     try {
       const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
         email,
         password,
       });
-      const { token, user } = response.data;
 
-      if (token) {
+      const { token, user ,message} = response.data;
+
+      if (!token) {
+       setError(message || "Invalid credentials");
+       return;
+      }
         localStorage.setItem("token", token);
         updateUser(user);
         navigate("/dashboard");
-      }
     } catch (error) {
-      if (error.response && error.response.data.message) {
+        console.log("API Error:", error.response?.data);
+      if (error.response && error.response?.data?.message) {
         setError(error.response.data.message);
       } else {
         setError("something went wrong. Please try again later");

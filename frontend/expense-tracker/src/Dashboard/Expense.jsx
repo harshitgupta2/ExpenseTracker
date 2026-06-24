@@ -75,7 +75,7 @@ const Expense = () => {
       await axiosInstance.delete(API_PATHS.EXPENSE.DELETE_EXPENSE(id));
       setOpenDeleteAlert({ show: false, data: null });
       toast.success("Expense details deleted succsessfully");
-      fetchIncomeDeatils();
+      fetchExpenseDeatils();
     } catch (error) {
       console.error(
         "Error deleting the expense",
@@ -105,7 +105,7 @@ const Expense = () => {
         </div>
         <Modal
           isOpen={openAddExpenseModal}
-          onClck={() => setOpenAddExpenseModal(false)}
+          onClose={() => setOpenAddExpenseModal(false)}
           title="Add Expense"
         >
           <AddExpenseFrom onAddIncome={handleAddExpense} />
